@@ -15,7 +15,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build && vue-tsc",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepublishOnly": "pnpm build"
   },
   "peerDependencies": {
     "vue": "^3.3.4"
