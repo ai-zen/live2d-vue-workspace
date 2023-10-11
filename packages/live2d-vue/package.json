@@ -1,6 +1,15 @@
 {
   "name": "@ai-zen/live2d-vue",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "description": "live2d-vue is an npm package for integrating Live2D views into Vue projects.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ai-zen/live2d-vue.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ai-zen/live2d-vue/issues"
+  },
+  "homepage": "https://github.com/ai-zen/live2d-vue",
   "type": "module",
   "main": "./dist/live2d-vue.umd.cjs",
   "module": "./dist/live2d-vue.js",
