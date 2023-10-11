@@ -25,31 +25,31 @@ Import the Live2D component in your Vue component and set its width and height u
   <Live2D class="live2d" @mounted="onLive2DMounted" />
 </template>
 
-<script>
+<script setup lang="ts">
 import {
   Live2D,
   LAppDelegateModule,
   LAppLive2DManagerModule,
 } from "live2d-vue";
+import { ref } from "vue";
 
-export default {
-  components: {
-    Live2D,
-  },
-  methods: {
-    async onLive2DMounted(_delegate, manager) {
-      // Load the default model
-      const currentModel = await manager.changeModel(
-        "/models/Hiyori",
-        "Hiyori.model3.json"
-      );
+let currentModel = null;
 
-      // After loading the model, receive the character profile configuration (if any)
-      const currentModelProfile =
-        await currentModel._profileManager.loadProfile();
-    },
-  },
-};
+const currentModelProfile = ref(null);
+
+async function onLive2DMounted(
+  _delegate: LAppDelegateModule.LAppDelegate,
+  manager: LAppLive2DManagerModule.LAppLive2DManager
+) {
+  // Load the default model
+  const currentModel = await manager.changeModel(
+    "/models/Hiyori",
+    "Hiyori.model3.json"
+  );
+
+  // After loading the model, receive the character profile configuration (if any)
+  const currentModelProfile = await currentModel._profileManager.loadProfile();
+}
 </script>
 
 <style scoped>
