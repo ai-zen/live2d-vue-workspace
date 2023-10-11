@@ -1,18 +1,90 @@
-# Vue 3 + TypeScript + Vite
+# live2d-vue
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+live2d-vue is an npm package for integrating Live2D views into Vue projects.
 
-## Recommended IDE Setup
+## Installation
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+Install using npm:
 
-## Type Support For `.vue` Imports in TS
+```shell
+npm install live2d-vue
+```
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+or using yarn:
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+```shell
+yarn add live2d-vue
+```
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+## Usage
+
+Import the Live2D component in your Vue component and set its width and height using CSS styles:
+
+```vue
+<template>
+  <Live2D class="live2d" @mounted="onLive2DMounted" />
+</template>
+
+<script>
+import {
+  Live2D,
+  LAppDelegateModule,
+  LAppLive2DManagerModule,
+} from "live2d-vue";
+
+export default {
+  components: {
+    Live2D,
+  },
+  methods: {
+    async onLive2DMounted(_delegate, manager) {
+      // Load the default model
+      const currentModel = await manager.changeModel(
+        "/models/Hiyori",
+        "Hiyori.model3.json"
+      );
+
+      // After loading the model, receive the character profile configuration (if any)
+      const currentModelProfile =
+        await currentModel._profileManager.loadProfile();
+    },
+  },
+};
+</script>
+
+<style scoped>
+.live2d {
+  width: 800px;
+  height: 800px;
+}
+</style>
+```
+
+In addition, you need to manually include `live2dcubismcore.min.js`:
+
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Include the live2dcubismcore.min.js provided by the Live2D SDK in your website's HTML page -->
+    <script src="/live2dcubismcore.min.js"></script>
+  </head>
+</html>
+```
+
+## API
+
+### Props
+
+This component does not expose any props.
+
+### Events
+
+| Event Name       | Description                                                            | Parameters                                                  |
+| ---------------- | ---------------------------------------------------------------------- | ----------------------------------------------------------- |
+| mounted          | Triggered when the component is mounted                                | `delegate`: LAppDelegate, `manager`: LAppLive2DManager      |
+| modelStateChange | Triggered if the state of the model changes during the loading process | `model`: LAppModel, `state`: LoadStep, `oldValue`: LoadStep |
+
+### Instance Properties
+
+This component exposes the following properties as-is: LAppDelegate, LAppLive2DManager

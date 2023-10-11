@@ -1,5 +1,5 @@
 {
-  "name": "live2d-vue",
+  "name": "@ai-zen/live2d-vue",
   "version": "1.0.0",
   "type": "module",
   "main": "./dist/live2d-vue.umd.cjs",
