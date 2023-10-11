@@ -1,6 +1,6 @@
 # Live2D Vue Workspace
 
-A Pnpm Workspace Project of [@ai-zen/live2d-vue](packages\live2d-vue\README.md)
+A Pnpm Workspace Project of [@ai-zen/live2d-vue](packages/live2d-vue/README.md)
 
 ## Getting Started
 
