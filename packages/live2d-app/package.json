@@ -1,0 +1,15 @@
+{
+  "name": "live2d-app",
+  "scripts": {
+    "build": "tsc",
+    "postinstall": "pnpm build"
+  },
+  "dependencies": {
+    "@ai-zen/event-bus": "^1.0.1",
+    "live2d-framework": "*",
+    "whatwg-fetch": "^3.6.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "live2d-vue",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "./dist/live2d-vue.umd.cjs",
+  "module": "./dist/live2d-vue.js",
+  "types": "./dist/main.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/live2d-vue.js",
+      "require": "./dist/live2d-vue.umd.cjs",
+      "types": "./dist/main.d.ts"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && vue-tsc",
+    "preview": "vite preview"
+  },
+  "peerDependencies": {
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.4",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "live2d-core": "*",
+    "live2d-app": "*",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5",
+    "vue-tsc": "^1.8.5"
+  }
+}

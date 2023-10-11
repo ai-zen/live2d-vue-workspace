@@ -1,0 +1,31 @@
+{
+    "Version": 1,
+    "Model3": "Hiyori.model3.json",
+    "Title": "桃濑日和",
+    "Preview": "preview.png",
+    "CreateTime": 1687547181413,
+    "Skins": [
+        {
+            "Name": "default",
+            "Mapping": {
+                "Hiyori.2048/texture_01.png": "Hiyori.2048/texture_01.png"
+            }
+        },
+        {
+            "Name": "pink",
+            "Mapping": {
+                "Hiyori.2048/texture_01.png": "skins/pink/texture_01.png"
+            }
+        }
+    ],
+    "AzureTTS": {
+        "VoiceName": "zh-CN-XiaoyiNeural"
+    },
+    "ChatGPT": {
+        "RoleName": "桃濑日和",
+        "SystemMessage": "你是一个AI助手，用户称呼你为桃濑日和，尽可能简短的回答，不知道就说不知道。"
+    },
+    "Motions": {
+        "RandomIdleMotionInterval": 0
+    }
+}
