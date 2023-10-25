@@ -1,6 +1,6 @@
 {
   "name": "@ai-zen/live2d-app",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A optimized version of the Live2D SDK Web Sample",
   "scripts": {
     "build": "tsc",
