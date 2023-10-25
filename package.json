@@ -1,11 +1,12 @@
 {
   "name": "live2d-vue-workspace",
   "version": "1.0.0",
+  "private": true,
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "pnpm --filter test dev",
-    "publish": "pnpm --filter @ai-zen/* publish"
+    "publishAll": "pnpm --filter @ai-zen/* publish"
   },
   "keywords": [],
   "author": "",
