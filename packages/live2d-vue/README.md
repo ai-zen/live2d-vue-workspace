@@ -42,13 +42,13 @@ async function onLive2DMounted(
   manager: LAppLive2DManagerModule.LAppLive2DManager
 ) {
   // Load the default model
-  const currentModel = await manager.changeModel(
+  currentModel = await manager.changeModel(
     "/models/Hiyori",
     "Hiyori.model3.json"
   );
 
   // After loading the model, receive the character profile configuration (if any)
-  const currentModelProfile = await currentModel._profileManager.loadProfile();
+  currentModelProfile.value = await currentModel._profileManager.loadProfile();
 }
 </script>
 
