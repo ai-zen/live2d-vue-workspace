@@ -14,7 +14,7 @@ importers:
         specifier: ^1.0.1
         version: 1.0.1
       '@ai-zen/live2d-framework':
-        specifier: ^1.0.0
+        specifier: ^1.0.1
         version: link:../live2d-framework
       whatwg-fetch:
         specifier: ^3.6.2
@@ -56,10 +56,10 @@ importers:
   packages/live2d-vue:
     dependencies:
       '@ai-zen/live2d-app':
-        specifier: ^1.0.0
+        specifier: ^1.0.1
         version: link:../live2d-app
       '@ai-zen/live2d-core':
-        specifier: ^1.0.0
+        specifier: ^1.0.1
         version: link:../live2d-core
       vue:
         specifier: ^3.3.4
