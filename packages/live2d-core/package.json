@@ -1,5 +1,5 @@
 {
-  "name": "live2d-core",
+  "name": "@ai-zen/live2d-core",
   "version": "1.0.0",
   "description": "Live2D Cubism Core",
   "main": "live2dcubismcore.js",

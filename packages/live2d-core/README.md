@@ -1,3 +1,5 @@
+> This NPM package is only for easy download and the copyright belongs to the original author
+
 [English](README.md) / [日本語](README.ja.md)
 
 ---
@@ -5,7 +7,6 @@
 # Live2D Cubism Core
 
 This folder contains core library files for developing JavaScript or TypeScript applications.
-
 
 ## File List
 

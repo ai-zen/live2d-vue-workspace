@@ -5,8 +5,8 @@
  * that can be found at https://www.live2d.com/eula/live2d-open-software-license-agreement_en.html.
  */
 
-import { CubismMatrix44 } from "live2d-framework/dist/math/cubismmatrix44";
-import { CubismViewMatrix } from "live2d-framework/dist/math/cubismviewmatrix";
+import { CubismMatrix44 } from "@ai-zen/live2d-framework/dist/math/cubismmatrix44";
+import { CubismViewMatrix } from "@ai-zen/live2d-framework/dist/math/cubismviewmatrix";
 
 import * as LAppDefine from "./lappdefine";
 import { canvas, gl, LAppDelegate } from "./lappdelegate";

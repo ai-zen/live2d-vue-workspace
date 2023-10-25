@@ -7,43 +7,43 @@
 
 import "whatwg-fetch";
 
-import { CubismDefaultParameterId } from "live2d-framework/dist/cubismdefaultparameterid";
-import { CubismModelSettingJson } from "live2d-framework/dist/cubismmodelsettingjson";
+import { CubismDefaultParameterId } from "@ai-zen/live2d-framework/dist/cubismdefaultparameterid";
+import { CubismModelSettingJson } from "@ai-zen/live2d-framework/dist/cubismmodelsettingjson";
 import {
   BreathParameterData,
   CubismBreath,
-} from "live2d-framework/dist/effect/cubismbreath";
-import { CubismEyeBlink } from "live2d-framework/dist/effect/cubismeyeblink";
-import { ICubismModelSetting } from "live2d-framework/dist/icubismmodelsetting";
-import { CubismIdHandle } from "live2d-framework/dist/id/cubismid";
-import { CubismFramework } from "live2d-framework/dist/live2dcubismframework";
-import { CubismMatrix44 } from "live2d-framework/dist/math/cubismmatrix44";
-import { CubismUserModel } from "live2d-framework/dist/model/cubismusermodel";
+} from "@ai-zen/live2d-framework/dist/effect/cubismbreath";
+import { CubismEyeBlink } from "@ai-zen/live2d-framework/dist/effect/cubismeyeblink";
+import { ICubismModelSetting } from "@ai-zen/live2d-framework/dist/icubismmodelsetting";
+import { CubismIdHandle } from "@ai-zen/live2d-framework/dist/id/cubismid";
+import { CubismFramework } from "@ai-zen/live2d-framework/dist/live2dcubismframework";
+import { CubismMatrix44 } from "@ai-zen/live2d-framework/dist/math/cubismmatrix44";
+import { CubismUserModel } from "@ai-zen/live2d-framework/dist/model/cubismusermodel";
 import {
   ACubismMotion,
   FinishedMotionCallback,
-} from "live2d-framework/dist/motion/acubismmotion";
-import { CubismMotion } from "live2d-framework/dist/motion/cubismmotion";
+} from "@ai-zen/live2d-framework/dist/motion/acubismmotion";
+import { CubismMotion } from "@ai-zen/live2d-framework/dist/motion/cubismmotion";
 import {
   CubismMotionQueueEntryHandle,
   InvalidMotionQueueEntryHandleValue,
-} from "live2d-framework/dist/motion/cubismmotionqueuemanager";
-import { csmMap } from "live2d-framework/dist/type/csmmap";
-import { csmRect } from "live2d-framework/dist/type/csmrectf";
-import { csmString } from "live2d-framework/dist/type/csmstring";
-import { csmVector } from "live2d-framework/dist/type/csmvector";
+} from "@ai-zen/live2d-framework/dist/motion/cubismmotionqueuemanager";
+import { csmMap } from "@ai-zen/live2d-framework/dist/type/csmmap";
+import { csmRect } from "@ai-zen/live2d-framework/dist/type/csmrectf";
+import { csmString } from "@ai-zen/live2d-framework/dist/type/csmstring";
+import { csmVector } from "@ai-zen/live2d-framework/dist/type/csmvector";
 import {
   CSM_ASSERT,
   CubismLogError,
   CubismLogInfo,
-} from "live2d-framework/dist/utils/cubismdebug";
+} from "@ai-zen/live2d-framework/dist/utils/cubismdebug";
 
 import * as LAppDefine from "./lappdefine";
 import { canvas, frameBuffer, gl, LAppDelegate } from "./lappdelegate";
 import { LAppPal } from "./lapppal";
 import { TextureInfo } from "./lapptexturemanager";
 import { LAppWavFileHandler } from "./lappwavfilehandler";
-import { CubismMoc } from "live2d-framework/dist/model/cubismmoc";
+import { CubismMoc } from "@ai-zen/live2d-framework/dist/model/cubismmoc";
 import EventBus from "@ai-zen/event-bus";
 import { LAppProfileManager } from "./lappprofilemanager";
 import { LAppSkinsManager } from "./lappskinsmanager";

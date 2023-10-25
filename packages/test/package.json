@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "vue": "^3.3.4",
-    "live2d-vue": "*"
+    "@ai-zen/live2d-vue": "*"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",

@@ -7,12 +7,13 @@ import {
   Live2D,
   LAppDelegateModule,
   LAppLive2DManagerModule,
-} from "live2d-vue";
+  LAppProfileModule,
+} from "@ai-zen/live2d-vue";
 import { ref } from "vue";
 
 let currentModel = null;
 
-const currentModelProfile = ref(null);
+const currentModelProfile = ref<LAppProfileModule.LAppProfile | null>(null);
 
 async function onLive2DMounted(
   _delegate: LAppDelegateModule.LAppDelegate,

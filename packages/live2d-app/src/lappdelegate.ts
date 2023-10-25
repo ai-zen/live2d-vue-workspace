@@ -8,7 +8,7 @@
 import {
   CubismFramework,
   Option,
-} from "live2d-framework/dist/live2dcubismframework";
+} from "@ai-zen/live2d-framework/dist/live2dcubismframework";
 
 import * as LAppDefine from "./lappdefine";
 import { LAppLive2DManager } from "./lapplive2dmanager";

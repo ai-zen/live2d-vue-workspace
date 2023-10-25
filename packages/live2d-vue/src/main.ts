@@ -1,19 +1,35 @@
-// @ts-ignore
-// import "live2d-core/live2dcubismcore.global.js";
+/// <reference types="vite/client" />
+
 import Live2D from "./Live2D.vue";
 
-export * as LAppDefineModule from "live2d-app/dist/lappdefine";
-export * as LAppDelegateModule from "live2d-app/dist/lappdelegate";
-export * as LAppLive2DManagerModule from "live2d-app/dist/lapplive2dmanager";
-export * as LAppModelModule from "live2d-app/dist/lappmodel";
-export * as LAppPalModule from "live2d-app/dist/lapppal";
-export * as LAppProfileModule from "live2d-app/dist/lappprofile";
-export * as LAppProfileManagerModule from "live2d-app/dist/lappprofilemanager";
-export * as LAppSkinsManagerModule from "live2d-app/dist/lappskinsmanager";
-export * as LAppSpriteModule from "live2d-app/dist/lappsprite";
-export * as LAppTextureManagerModule from "live2d-app/dist/lapptexturemanager";
-export * as LAppViewModule from "live2d-app/dist/lappview";
-export * as LAppWavFileHandlerModule from "live2d-app/dist/lappwavfilehandler";
-export * as TouchManagerModule from "live2d-app/dist/touchmanager";
+import "@ai-zen/live2d-core/live2dcubismcore.d.ts";
+import * as LAppDefineModule from "@ai-zen/live2d-app/dist/lappdefine";
+import * as LAppDelegateModule from "@ai-zen/live2d-app/dist/lappdelegate";
+import * as LAppLive2DManagerModule from "@ai-zen/live2d-app/dist/lapplive2dmanager";
+import * as LAppModelModule from "@ai-zen/live2d-app/dist/lappmodel";
+import * as LAppPalModule from "@ai-zen/live2d-app/dist/lapppal";
+import * as LAppProfileModule from "@ai-zen/live2d-app/dist/lappprofile";
+import * as LAppProfileManagerModule from "@ai-zen/live2d-app/dist/lappprofilemanager";
+import * as LAppSkinsManagerModule from "@ai-zen/live2d-app/dist/lappskinsmanager";
+import * as LAppSpriteModule from "@ai-zen/live2d-app/dist/lappsprite";
+import * as LAppTextureManagerModule from "@ai-zen/live2d-app/dist/lapptexturemanager";
+import * as LAppViewModule from "@ai-zen/live2d-app/dist/lappview";
+import * as LAppWavFileHandlerModule from "@ai-zen/live2d-app/dist/lappwavfilehandler";
+import * as TouchManagerModule from "@ai-zen/live2d-app/dist/touchmanager";
 
-export { Live2D };
+export {
+  Live2D,
+  LAppDefineModule,
+  LAppDelegateModule,
+  LAppLive2DManagerModule,
+  LAppModelModule,
+  LAppPalModule,
+  LAppProfileModule,
+  LAppProfileManagerModule,
+  LAppSkinsManagerModule,
+  LAppSpriteModule,
+  LAppTextureManagerModule,
+  LAppViewModule,
+  LAppWavFileHandlerModule,
+  TouchManagerModule,
+};

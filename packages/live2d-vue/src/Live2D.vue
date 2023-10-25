@@ -3,11 +3,11 @@
 </template>
 
 <script setup lang="ts">
-import { LAppDelegate } from "live2d-app/dist/lappdelegate";
-import * as LAppDefine from "live2d-app/dist/lappdefine";
-import { onMounted, onUnmounted, ref, defineEmits } from "vue";
-import { LAppLive2DManager } from "live2d-app/dist/lapplive2dmanager";
-import { LAppModel, LoadStep } from "live2d-app/dist/lappmodel";
+import * as LAppDefine from "@ai-zen/live2d-app/dist/lappdefine";
+import { LAppDelegate } from "@ai-zen/live2d-app/dist/lappdelegate";
+import { LAppLive2DManager } from "@ai-zen/live2d-app/dist/lapplive2dmanager";
+import { LAppModel, LoadStep } from "@ai-zen/live2d-app/dist/lappmodel";
+import { defineEmits, onMounted, onUnmounted, ref } from "vue";
 
 const emits = defineEmits<{
   (

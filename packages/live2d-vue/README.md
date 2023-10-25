@@ -7,13 +7,13 @@ live2d-vue is an npm package for integrating Live2D views into Vue projects.
 Install using npm:
 
 ```shell
-npm install live2d-vue
+npm install @ai-zen/live2d-vue
 ```
 
 or using yarn:
 
 ```shell
-yarn add live2d-vue
+yarn add @ai-zen/live2d-vue
 ```
 
 ## Usage
@@ -35,7 +35,7 @@ import { ref } from "vue";
 
 let currentModel = null;
 
-const currentModelProfile = ref(null);
+const currentModelProfile = ref<LAppProfileModule.LAppProfile | null>(null);
 
 async function onLive2DMounted(
   _delegate: LAppDelegateModule.LAppDelegate,

@@ -1,8 +1,7 @@
 {
-  "name": "live2d-framework",
+  "name": "@ai-zen/live2d-framework",
   "description": "Cubism Web Framework",
   "version": "1.0.0",
-  "private": true,
   "scripts": {
     "postinstall": "pnpm build",
     "build": "tsc",

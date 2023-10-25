@@ -7,13 +7,13 @@ live2d-vue 是一个用于在 Vue 项目中集成 Live2D 视图的 npm 包。
 使用 npm 安装：
 
 ```shell
-npm install live2d-vue
+npm install @ai-zen/live2d-vue
 ```
 
 或使用 yarn 安装：
 
 ```shell
-yarn add live2d-vue
+yarn add @ai-zen/live2d-vue
 ```
 
 ## 使用方式
@@ -35,7 +35,7 @@ import { ref } from "vue";
 
 let currentModel = null;
 
-const currentModelProfile = ref(null);
+const currentModelProfile = ref<LAppProfileModule.LAppProfile | null>(null);
 
 async function onLive2DMounted(
   _delegate: LAppDelegateModule.LAppDelegate,
