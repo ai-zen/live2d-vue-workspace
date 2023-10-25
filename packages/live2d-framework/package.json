@@ -1,10 +1,9 @@
 {
   "name": "@ai-zen/live2d-framework",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Cubism Web Framework",
   "author": "Live2D",
   "scripts": {
-    "postinstall": "pnpm build",
     "build": "tsc",
     "test": "tsc --noEmit",
     "lint": "eslint src --ext .ts",
