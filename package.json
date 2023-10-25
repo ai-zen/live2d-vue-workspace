@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "pnpm --filter test dev"
+    "test": "pnpm --filter test dev",
+    "publish": "pnpm --filter @ai-zen/* publish"
   },
   "keywords": [],
   "author": "",
