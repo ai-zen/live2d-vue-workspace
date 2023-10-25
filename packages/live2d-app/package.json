@@ -1,6 +1,7 @@
 {
   "name": "@ai-zen/live2d-app",
   "version": "1.0.0",
+  "description": "A optimized version of the Live2D SDK Web Sample",
   "scripts": {
     "build": "tsc",
     "postinstall": "pnpm build"

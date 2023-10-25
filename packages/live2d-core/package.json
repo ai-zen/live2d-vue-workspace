@@ -2,11 +2,7 @@
   "name": "@ai-zen/live2d-core",
   "version": "1.0.0",
   "description": "Live2D Cubism Core",
+  "author": "Live2D",
   "main": "live2dcubismcore.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
   "types": "./live2dcubismcore.d.ts"
 }
