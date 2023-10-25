@@ -30,7 +30,7 @@ import {
   Live2D,
   LAppDelegateModule,
   LAppLive2DManagerModule,
-} from "live2d-vue";
+} from "@ai-zen/live2d-vue";
 import { ref } from "vue";
 
 let currentModel = null;
