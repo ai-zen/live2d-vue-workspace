@@ -80,6 +80,9 @@ export class LAppLive2DManager {
    * @param y 画面のY座標
    */
   public onDrag(x: number, y: number): void {
+    // 如果不允许拖拽则跳过后续步骤
+    if (!this._enabledDrag) return;
+
     for (let i = 0; i < this._models.getSize(); i++) {
       const model: LAppModel = this.getModel(i);
 
@@ -225,4 +228,7 @@ export class LAppLive2DManager {
   };
 
   _events = new EventBus();
+
+  // 是否允许拖拽
+  _enabledDrag = true;
 }
