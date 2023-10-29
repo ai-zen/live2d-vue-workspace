@@ -6,6 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test": "pnpm --filter test dev",
+    "buildAll": "pnpm --filter @ai-zen/* build",
     "publishAll": "pnpm --filter @ai-zen/* publish"
   },
   "keywords": [],
