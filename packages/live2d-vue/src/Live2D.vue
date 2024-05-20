@@ -79,7 +79,7 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
-  LAppLive2DManager.getInstance()._events.on(
+  LAppLive2DManager.getInstance()._events.off(
     "modelStateChange",
     onModelStateChange
   );
