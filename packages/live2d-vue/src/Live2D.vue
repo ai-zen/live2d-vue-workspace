@@ -7,19 +7,39 @@ import * as LAppDefine from "@ai-zen/live2d-app/dist/lappdefine";
 import { LAppDelegate } from "@ai-zen/live2d-app/dist/lappdelegate";
 import { LAppLive2DManager } from "@ai-zen/live2d-app/dist/lapplive2dmanager";
 import { LAppModel, LoadStep } from "@ai-zen/live2d-app/dist/lappmodel";
-import { defineEmits, onMounted, onUnmounted, ref } from "vue";
+import {
+  defineEmits,
+  onMounted,
+  onUnmounted,
+  ref,
+  shallowRef,
+  watchEffect,
+} from "vue";
 
 const emits = defineEmits<{
   (
     event: "modelStateChange",
     model: LAppModel,
     state: LoadStep,
-    oldValue: LoadStep
+    prevState: LoadStep
   ): void;
-  (event: "mounted", delegate: LAppDelegate, manager: LAppLive2DManager): void;
+  (event: "ready"): void;
+}>();
+
+const props = defineProps<{
+  modelDir: string;
+  modelName: string;
 }>();
 
 const canvasEl = ref<null | HTMLCanvasElement>(null);
+
+const delegateRef = shallowRef<LAppDelegate | null>(null);
+
+const managerRef = shallowRef<LAppLive2DManager | null>(null);
+
+const currentModel = ref<LAppModel | null>(null);
+
+const isReady = ref(false);
 
 function onResize() {
   if (LAppDefine.CanvasSize === "auto" || LAppDefine.CanvasSize === "inherit") {
@@ -36,7 +56,6 @@ function onModelStateChange(
 }
 
 onMounted(() => {
-  // create the application instance
   if (LAppDelegate.getInstance().initialize(canvasEl.value!) == false) {
     return;
   }
@@ -50,8 +69,13 @@ onMounted(() => {
 
   window.addEventListener("resize", onResize);
 
-  // 告诉外面实例挂载好了，可以初始化模型了
-  emits("mounted", LAppDelegate.getInstance(), LAppLive2DManager.getInstance());
+  delegateRef.value = LAppDelegate.getInstance();
+
+  managerRef.value = LAppLive2DManager.getInstance();
+
+  isReady.value = true;
+
+  emits("ready");
 });
 
 onUnmounted(() => {
@@ -65,9 +89,21 @@ onUnmounted(() => {
   LAppDelegate.releaseInstance();
 });
 
+watchEffect(async () => {
+  if (managerRef.value && props.modelDir && props.modelName) {
+    currentModel.value = await managerRef.value.changeModel(
+      props.modelDir,
+      props.modelName
+    );
+  }
+});
+
 defineExpose({
   LAppDelegate,
   LAppLive2DManager,
+  delegateRef,
+  managerRef,
+  isReady,
 });
 </script>
 
