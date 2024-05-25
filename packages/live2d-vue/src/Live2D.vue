@@ -50,9 +50,9 @@ function onResize() {
 function onModelStateChange(
   model: LAppModel,
   state: LoadStep,
-  oldValue: LoadStep
+  prevState: LoadStep
 ) {
-  emits("modelStateChange", model, state, oldValue);
+  emits("modelStateChange", model, state, prevState);
 }
 
 onMounted(() => {

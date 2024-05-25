@@ -1,6 +1,6 @@
 # live2d-vue
 
-live2d-vue is an npm package for integrating Live2D views into Vue projects.
+Live2D-Vue is a vue component lib for integrating Live2D views into Vue projects.
 
 ## Installation
 
@@ -61,11 +61,17 @@ This component does not expose any props.
 
 ### Events
 
-| Event Name       | Description                                                            | Parameters                                                  |
-| ---------------- | ---------------------------------------------------------------------- | ----------------------------------------------------------- |
-| mounted          | Triggered when the component is mounted                                | `delegate`: LAppDelegate, `manager`: LAppLive2DManager      |
-| modelStateChange | Triggered if the state of the model changes during the loading process | `model`: LAppModel, `state`: LoadStep, `oldValue`: LoadStep |
+| Event Name       | Description                                                            | Parameters                                                   |
+| ---------------- | ---------------------------------------------------------------------- | ------------------------------------------------------------ |
+| ready            | Triggered when Live2D initialized.                                     |                                                              |
+| modelStateChange | Triggered if the state of the model changes during the loading process | `model`: LAppModel, `state`: LoadStep, `prevState`: LoadStep |
 
 ### Instance Properties
 
-This component exposes the following properties as-is: LAppDelegate, LAppLive2DManager
+This component exposes:
+
+- LAppDelegate
+- LAppLive2DManager
+- delegateRef
+- managerRef
+- isReady

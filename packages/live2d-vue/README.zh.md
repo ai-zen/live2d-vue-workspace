@@ -1,6 +1,6 @@
 # live2d-vue
 
-live2d-vue 是一个用于在 Vue 项目中集成 Live2D 视图的 npm 包。
+Live2D-Vue 是一个 Vue 组件，用于集成 Live2D 视图到 Vue 项目中.
 
 ## 安装
 
@@ -61,11 +61,17 @@ import { Live2D } from "@ai-zen/live2d-vue";
 
 ### Events
 
-| 事件名           | 说明                               | 参数                                                        |
-| ---------------- | ---------------------------------- | ----------------------------------------------------------- |
-| mounted          | 组件挂载完成时触发                 | `delegate`: LAppDelegate，`manager`: LAppLive2DManager      |
-| modelStateChange | 模型在加载过程中如果状态变化则触发 | `model`: LAppModel, `state`: LoadStep, `oldValue`: LoadStep |
+| 事件名           | 说明                               | 参数                                                         |
+| ---------------- | ---------------------------------- | ------------------------------------------------------------ |
+| ready            | Live2D 初始化完成后触发            |                                                              |
+| modelStateChange | 模型在加载过程中如果状态变化则触发 | `model`: LAppModel, `state`: LoadStep, `prevState`: LoadStep |
 
 ### 实例属性
 
-该组件原样暴露了以下属性：LAppDelegate, LAppLive2DManager
+该组件暴露了以下属性：
+
+- LAppDelegate
+- LAppLive2DManager
+- delegateRef
+- managerRef
+- isReady
