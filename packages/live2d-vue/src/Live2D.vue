@@ -40,7 +40,7 @@ const delegateRef = shallowRef<LAppDelegate | null>(null);
 
 const managerRef = shallowRef<LAppLive2DManager | null>(null);
 
-const currentModel = ref<LAppModel | null>(null);
+const currentModel = shallowRef<LAppModel | null>(null);
 
 const isReady = ref(false);
 
