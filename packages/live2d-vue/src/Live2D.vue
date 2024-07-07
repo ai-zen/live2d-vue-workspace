@@ -3,10 +3,10 @@
 </template>
 
 <script setup lang="ts">
-import * as LAppDefine from "@ai-zen/live2d-app/dist/lappdefine";
-import { LAppDelegate } from "@ai-zen/live2d-app/dist/lappdelegate";
-import { LAppLive2DManager } from "@ai-zen/live2d-app/dist/lapplive2dmanager";
-import { LAppModel, LoadStep } from "@ai-zen/live2d-app/dist/lappmodel";
+import * as LAppDefine from "@app/lappdefine";
+import { LAppDelegate } from "@app/lappdelegate";
+import { LAppLive2DManager } from "@app/lapplive2dmanager";
+import { LAppModel, LoadStep } from "@app/lappmodel";
 import {
   defineEmits,
   onMounted,

@@ -1,2 +1,8 @@
 node_modules
 dist
+packages/live2d-vue/src/CubismSdkForWeb-5-r.1/Samples
+packages/live2d-vue/src/CubismSdkForWeb-5-r.1/Core/*
+!packages/live2d-vue/src/CubismSdkForWeb-5-r.1/Core/RedistributableFiles.txt
+!packages/live2d-vue/src/CubismSdkForWeb-5-r.1/Core/live2dcubismcore.min.js
+!packages/live2d-vue/src/CubismSdkForWeb-5-r.1/Core/live2dcubismcore.js
+!packages/live2d-vue/src/CubismSdkForWeb-5-r.1/Core/live2dcubismcore.d.ts

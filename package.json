@@ -5,9 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "pnpm --filter test dev",
-    "buildAll": "pnpm --filter @ai-zen/* build",
-    "publishAll": "pnpm --filter @ai-zen/* publish"
+    "test": "pnpm --filter @ai-zen/live2d-vue build && pnpm --filter test dev"
   },
   "keywords": [],
   "author": "",

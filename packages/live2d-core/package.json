@@ -1,8 +1,0 @@
-{
-  "name": "@ai-zen/live2d-core",
-  "version": "1.0.2",
-  "description": "Live2D Cubism Core",
-  "author": "Live2D",
-  "main": "live2dcubismcore.js",
-  "types": "./live2dcubismcore.d.ts"
-}

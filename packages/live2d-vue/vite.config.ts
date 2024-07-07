@@ -1,10 +1,22 @@
 // vite.config.js
+import vue from "@vitejs/plugin-vue";
+import { readFileSync, writeFileSync } from "fs";
 import { resolve } from "path";
 import { defineConfig } from "vite";
-import vue from "@vitejs/plugin-vue";
 import dts from "vite-plugin-dts";
+import { viteStaticCopy } from "vite-plugin-static-copy";
 
 export default defineConfig({
+  resolve: {
+    alias: {
+      "@app": resolve(__dirname, "./src/app"),
+      "@core": resolve(__dirname, "./src/CubismSdkForWeb-5-r.1/Core"),
+      "@framework": resolve(
+        __dirname,
+        "./src/CubismSdkForWeb-5-r.1/Framework/src"
+      ),
+    },
+  },
   plugins: [
     vue(),
     dts({
@@ -12,6 +24,26 @@ export default defineConfig({
       staticImport: true,
       insertTypesEntry: true,
       rollupTypes: true,
+      copyDtsFiles: true,
+      tsconfigPath: "./tsconfig.json",
+      afterBuild() {
+        const mainDTs = resolve(__dirname, "./dist/main.d.ts");
+        let content = readFileSync(mainDTs, { encoding: "utf-8" });
+        content = `import "./live2dcubismcore.d.ts";\r\n` + content;
+        writeFileSync(mainDTs, content);
+      },
+    }),
+    viteStaticCopy({
+      targets: [
+        {
+          src: "./src/CubismSdkForWeb-5-r.1/Core/live2dcubismcore.d.ts",
+          dest: "./",
+        },
+        {
+          src: "./src/CubismSdkForWeb-5-r.1/Core/live2dcubismcore.min.js",
+          dest: "./",
+        },
+      ],
     }),
   ],
   build: {
