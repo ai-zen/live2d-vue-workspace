@@ -5,10 +5,7 @@
  * that can be found at https://www.live2d.com/eula/live2d-open-software-license-agreement_en.html.
  */
 
-import {
-  CubismFramework,
-  Option,
-} from "@framework/live2dcubismframework";
+import { CubismFramework, Option } from "@framework/live2dcubismframework";
 
 import * as LAppDefine from "./lappdefine";
 import { LAppLive2DManager } from "./lapplive2dmanager";
@@ -296,8 +293,8 @@ export class LAppDelegate {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     } else if (LAppDefine.CanvasSize === "inherit") {
-      canvas.width = canvas?.parentElement.clientWidth || window.innerWidth;
-      canvas.height = canvas?.parentElement.clientHeight || window.innerHeight;
+      canvas.width = canvas.parentElement?.clientWidth || window.innerWidth;
+      canvas.height = canvas.parentElement?.clientHeight || window.innerHeight;
     } else {
       canvas.width = LAppDefine.CanvasSize.width;
       canvas.height = LAppDefine.CanvasSize.height;

@@ -10,6 +10,9 @@ importers:
 
   packages/live2d-vue:
     dependencies:
+      '@ai-zen/async-queue':
+        specifier: ^1.0.3
+        version: 1.0.3
       '@ai-zen/event-bus':
         specifier: ^1.1.0
         version: 1.1.0
@@ -65,6 +68,10 @@ importers:
         version: 1.8.21(typescript@5.5.3)
 
 packages:
+
+  /@ai-zen/async-queue@1.0.3:
+    resolution: {integrity: sha512-xfdcFM18UpbuGt15rvW2bs3Y8WUllXBuuqLQH+1fMHMRn9xHMeDsWA3xWJ4JCUgSXrdc4a/9OhzwCGQSVnsMWQ==}
+    dev: false
 
   /@ai-zen/event-bus@1.1.0:
     resolution: {integrity: sha512-xjfQEmUMly++dOSrQMJkwrnBVl7bQHtiw8S09AW5jPuqnFV9OwBk0PsGFc/T+4eP4yWThBJo2X3cCdE5DkAr+Q==}

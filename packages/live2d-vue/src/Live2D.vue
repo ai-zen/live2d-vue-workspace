@@ -1,8 +1,11 @@
 <template>
-  <canvas ref="canvasEl"></canvas>
+  <div class="live2d-vue">
+    <canvas ref="canvasEl"></canvas>
+  </div>
 </template>
 
 <script setup lang="ts">
+import { AsyncQueue } from "@ai-zen/async-queue";
 import * as LAppDefine from "@app/lappdefine";
 import { LAppDelegate } from "@app/lappdelegate";
 import { LAppLive2DManager } from "@app/lapplive2dmanager";
@@ -55,6 +58,14 @@ function onModelStateChange(
   emits("modelStateChange", model, state, prevState);
 }
 
+const queue = new AsyncQueue<{ modelDir: string; modelName: string }>();
+
+watchEffect(async () => {
+  if (managerRef.value && props.modelDir && props.modelName) {
+    queue.push({ modelDir: props.modelDir, modelName: props.modelName });
+  }
+});
+
 onMounted(() => {
   if (LAppDelegate.getInstance().initialize(canvasEl.value!) == false) {
     return;
@@ -76,6 +87,15 @@ onMounted(() => {
   isReady.value = true;
 
   emits("ready");
+
+  (async () => {
+    for await (const { modelDir, modelName } of queue) {
+      currentModel.value = await managerRef.value!.changeModel(
+        modelDir,
+        modelName
+      );
+    }
+  })();
 });
 
 onUnmounted(() => {
@@ -87,15 +107,6 @@ onUnmounted(() => {
   window.removeEventListener("resize", onResize);
 
   LAppDelegate.releaseInstance();
-});
-
-watchEffect(async () => {
-  if (managerRef.value && props.modelDir && props.modelName) {
-    currentModel.value = await managerRef.value.changeModel(
-      props.modelDir,
-      props.modelName
-    );
-  }
 });
 
 defineExpose({
