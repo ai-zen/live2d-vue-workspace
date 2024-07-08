@@ -12,10 +12,9 @@ import { LAppLive2DManager } from "./lapplive2dmanager";
 import { LAppPal } from "./lapppal";
 import { LAppTextureManager } from "./lapptexturemanager";
 import { LAppView } from "./lappview";
+import { canvas, gl } from "./lappglmanager";
 
-export let canvas: HTMLCanvasElement = null;
 export let s_instance: LAppDelegate = null;
-export let gl: WebGLRenderingContext = null;
 export let frameBuffer: WebGLFramebuffer = null;
 
 /**
@@ -51,33 +50,13 @@ export class LAppDelegate {
   /**
    * APPに必要な物を初期化する。
    */
-  public initialize(canvasEl?: HTMLCanvasElement): boolean {
-    if (canvasEl) {
-      canvas = canvasEl;
+  public initialize(): boolean {
+    if (LAppDefine.CanvasSize === "auto") {
+      this._resizeCanvas();
     } else {
-      // キャンバスの作成
-      canvas = document.createElement("canvas");
-
-      // キャンバスを DOM に追加
-      document.body.appendChild(canvas);
+      canvas.width = LAppDefine.CanvasSize.width;
+      canvas.height = LAppDefine.CanvasSize.height;
     }
-
-    // glコンテキストを初期化
-    // @ts-ignore
-    gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
-
-    if (!gl) {
-      alert("Cannot initialize WebGL. This browser does not support.");
-      gl = null;
-
-      document.body.innerHTML =
-        "This browser does not support the <code>&lt;canvas&gt;</code> element.";
-
-      // gl初期化失敗
-      return false;
-    }
-
-    this._resizeCanvas();
 
     if (!frameBuffer) {
       frameBuffer = gl.getParameter(gl.FRAMEBUFFER_BINDING);
@@ -289,16 +268,9 @@ export class LAppDelegate {
    * Resize the canvas to fill the screen.
    */
   private _resizeCanvas(): void {
-    if (LAppDefine.CanvasSize === "auto") {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    } else if (LAppDefine.CanvasSize === "inherit") {
-      canvas.width = canvas.parentElement?.clientWidth || window.innerWidth;
-      canvas.height = canvas.parentElement?.clientHeight || window.innerHeight;
-    } else {
-      canvas.width = LAppDefine.CanvasSize.width;
-      canvas.height = LAppDefine.CanvasSize.height;
-    }
+    canvas.width = canvas.clientWidth * window.devicePixelRatio;
+    canvas.height = canvas.clientHeight * window.devicePixelRatio;
+    gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
   }
 
   _cubismOption: Option; // Cubism SDK Option

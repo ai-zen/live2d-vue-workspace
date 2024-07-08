@@ -10,11 +10,10 @@ import { ACubismMotion } from "@framework/motion/acubismmotion";
 import { csmVector } from "@framework/type/csmvector";
 
 import * as LAppDefine from "./lappdefine";
-import { canvas } from "./lappdelegate";
+import { canvas } from "./lappglmanager";
 import { LAppModel, LoadStep } from "./lappmodel";
 import { LAppPal } from "./lapppal";
 import EventBus from "@ai-zen/event-bus";
-
 export let s_instance: LAppLive2DManager = null;
 
 /**
@@ -171,8 +170,10 @@ export class LAppLive2DManager {
    */
   public changeModel(modelDir: string, modelFileName: string) {
     if (!modelDir.endsWith("/")) modelDir += "/";
+
     // 释放所有模型
     this.releaseAllModel();
+
     // 添加新模型
     return this.pushModel(modelDir, modelFileName);
   }

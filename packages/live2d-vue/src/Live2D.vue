@@ -1,13 +1,12 @@
 <template>
-  <div class="live2d-vue">
-    <canvas ref="canvasEl"></canvas>
-  </div>
+  <canvas ref="canvasEl"></canvas>
 </template>
 
 <script setup lang="ts">
 import { AsyncQueue } from "@ai-zen/async-queue";
 import * as LAppDefine from "@app/lappdefine";
 import { LAppDelegate } from "@app/lappdelegate";
+import { LAppGlManager } from "@app/lappglmanager";
 import { LAppLive2DManager } from "@app/lapplive2dmanager";
 import { LAppModel, LoadStep } from "@app/lappmodel";
 import {
@@ -45,7 +44,7 @@ const currentModel = shallowRef<LAppModel | null>(null);
 const isReady = ref(false);
 
 function onResize() {
-  if (LAppDefine.CanvasSize === "auto" || LAppDefine.CanvasSize === "inherit") {
+  if (LAppDefine.CanvasSize === "auto") {
     LAppDelegate.getInstance().onResize();
   }
 }
@@ -67,7 +66,10 @@ watchEffect(async () => {
 });
 
 onMounted(() => {
-  if (LAppDelegate.getInstance().initialize(canvasEl.value!) == false) {
+  if (
+    !LAppGlManager.getInstance().initialize(canvasEl.value!) ||
+    !LAppDelegate.getInstance().initialize()
+  ) {
     return;
   }
 
@@ -117,5 +119,3 @@ defineExpose({
   isReady,
 });
 </script>
-
-<style scoped></style>
