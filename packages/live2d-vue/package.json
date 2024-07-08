@@ -1,6 +1,6 @@
 {
   "name": "@ai-zen/live2d-vue",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Live2D-Vue is a vue component lib for integrating Live2D views into Vue projects.",
   "repository": {
     "type": "git",
